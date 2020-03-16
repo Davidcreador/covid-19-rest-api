@@ -10,7 +10,7 @@ info:
   license:
     name: "Apache-2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "covid-19-rest-api"
+host: "https://covid-19-rest-api.now.sh/"
 basePath: "/"
 tags:
   - name: "covid-19"
@@ -19,7 +19,7 @@ tags:
       description: "Find out more"
       url: "http://swagger.io"
 schemes:
-  - "http"
+  - "https"
 paths:
   /confirmed:
     get:
