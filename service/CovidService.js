@@ -84,10 +84,14 @@ exports.deathsByCountry = async function(country) {
  **/
 exports.latest = async function() {
   const today = getTodayDateMMDDYYYY();
-  const res = await axios.get(`${BASE_DAILY_PATH_URL}${today}.csv`);
-  const jsonArray = await csv().fromString(res.data);
+  try {
+    const res = await axios.get(`${BASE_DAILY_PATH_URL}${today}.csv`);
+    const jsonArray = await csv().fromString(res.data);
 
-  return jsonArray;
+    return jsonArray;
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 
 /**
@@ -104,6 +108,19 @@ exports.latestByCountry = async function(country) {
   });
 
   return records;
+};
+
+/**
+ * Get Latest cases
+ **/
+exports.latestByDate = async function(date) {
+  const res = await axios.get(`${BASE_DAILY_PATH_URL}${date}.csv`);
+
+  console.log(res);
+
+  const jsonArray = await csv().fromString(res.data);
+
+  return jsonArray;
 };
 
 /**

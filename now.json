@@ -27,6 +27,11 @@
       "methods": ["GET", "POST"]
     },
     {
+      "src": "/latest/date",
+      "dest": "/index.js",
+      "methods": ["GET", "POST"]
+    },
+    {
       "src": "/api-docs",
       "dest": "/index.js",
       "methods": ["GET", "POST"]

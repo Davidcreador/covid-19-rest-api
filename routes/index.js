@@ -42,6 +42,12 @@ router.get("/", function(req, res, next) {
           body: {
             country: "YOUR COUNTRY"
           }
+        },
+        POST: {
+          route: "/latest/date",
+          body: {
+            date: "YOUR DATE"
+          }
         }
       }
     }
@@ -63,5 +69,6 @@ router.post("/deaths", controllers.getDeathsByCountry);
 /* GET Latest. */
 router.get("/latest", controllers.getLatest);
 router.post("/latest", controllers.getLatestByCountry);
+router.post("/latest/date", controllers.getLatestByDate);
 
 module.exports = router;

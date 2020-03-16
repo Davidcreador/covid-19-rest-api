@@ -73,13 +73,26 @@ module.exports.getLatest = function getConfirmed(req, res, next) {
       utils.writeJson(res, response);
     })
     .catch(function(response) {
-      utils.writeJson(res, response);
+      res.json({
+        error: response.error
+      });
     });
 };
 
 module.exports.getLatestByCountry = function getConfirmed(req, res, next) {
   const { country } = req.body;
   CovidService.latestByCountry(country)
+    .then(function(response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function(response) {
+      utils.writeJson(res, response);
+    });
+};
+
+module.exports.getLatestByDate = function getConfirmed(req, res, next) {
+  const { date } = req.body;
+  CovidService.latestByDate(date)
     .then(function(response) {
       utils.writeJson(res, response);
     })
