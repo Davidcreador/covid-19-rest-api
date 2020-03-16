@@ -10,7 +10,7 @@ info:
   license:
     name: "Apache-2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "https://covid-19-rest-api.now.sh/"
+host: "https://corona-stats.davidcreador.now.sh/"
 basePath: "/"
 tags:
   - name: "covid-19"

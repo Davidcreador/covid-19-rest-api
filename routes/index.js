@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const controllers = require("../controllers/Covid");
+const { name, version, description } = require("../package.json");
 
 router.get("/", function(req, res, next) {
   res.json({
+    version: version,
     api: "OK",
     endpoints: {
       confirmed: {

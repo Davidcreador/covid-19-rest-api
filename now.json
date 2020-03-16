@@ -7,13 +7,24 @@
   ],
   "routes": [
     {
-      "headers": {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
-      },
-      "src": "/.*",
-      "dest": "/index.js"
+      "src": "/confirmed",
+      "dest": "/index.js",
+      "methods": ["GET", "POST"]
+    },
+    {
+      "src": "/recovered",
+      "dest": "/index.js",
+      "methods": ["GET", "POST"]
+    },
+    {
+      "src": "/deaths",
+      "dest": "/index.js",
+      "methods": ["GET", "POST"]
+    },
+    {
+      "src": "/latest",
+      "dest": "/index.js",
+      "methods": ["GET", "POST"]
     }
   ]
 }
