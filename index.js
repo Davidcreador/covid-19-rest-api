@@ -4,40 +4,30 @@ const fs = require("fs");
 const path = require("path");
 const Cors = require("cors");
 const logger = require("morgan");
-const swaggerDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const express = require("express");
 
 const app = express();
-// const swaggerTools = require("swagger-tools");
-// const jsyaml = require("js-yaml");
+const jsyaml = require("js-yaml");
 const serverPort = process.env.API_PORT || 5000;
 
-const swaggerDefinition = {
-  info: {
-    title: "Covid-19 Swagger API",
-    version: "1.0.0"
-  },
-  host: "localhost:3003",
-  basePath: "/"
-};
+// The Swagger document (require it, build it programmatically, fetch it from a URL, ...)
+const spec = fs.readFileSync(path.join(__dirname, "api/swagger.yaml"), "utf8");
+const swaggerDoc = jsyaml.safeLoad(spec);
 
 // swaggerRouter configuration
 const options = {
-  swaggerDefinition,
+  spec,
   apis: ["./routes/*.js"]
 };
 
-const swaggerSpec = swaggerDoc(options);
+const swaggerSpec = swaggerDoc;
 
 app.get("/swagger.json", function(req, res) {
   res.setHeader("Content-Type", "application/json");
   res.send(swaggerSpec);
 });
 
-// The Swagger document (require it, build it programmatically, fetch it from a URL, ...)
-// const spec = fs.readFileSync(path.join(__dirname, "api/swagger.yaml"), "utf8");
-// const swaggerDoc = jsyaml.safeLoad(spec);
 const routes = require("./routes/index");
 
 app.use(express.json());

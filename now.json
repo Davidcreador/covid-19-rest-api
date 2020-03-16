@@ -25,6 +25,11 @@
       "src": "/latest",
       "dest": "/index.js",
       "methods": ["GET", "POST"]
+    },
+    {
+      "src": "/api-docs",
+      "dest": "/index.js",
+      "methods": ["GET", "POST"]
     }
   ]
 }
