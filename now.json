@@ -29,7 +29,7 @@
     {
       "src": "/latest/date",
       "dest": "/index.js",
-      "methods": ["GET", "POST"]
+      "methods": ["POST"]
     },
     {
       "src": "/api-docs",

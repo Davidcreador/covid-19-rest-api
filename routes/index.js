@@ -41,9 +41,7 @@ router.get("/", function(req, res, next) {
           route: "/latest",
           body: {
             country: "YOUR COUNTRY"
-          }
-        },
-        POST: {
+          },
           route: "/latest/date",
           body: {
             date: "YOUR DATE"
