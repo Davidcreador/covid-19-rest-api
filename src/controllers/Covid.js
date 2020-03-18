@@ -68,7 +68,9 @@ module.exports.getDeathsByCountry = function getConfirmed(req, res, next) {
 };
 
 module.exports.getLatest = function getConfirmed(req, res, next) {
-  CovidService.latest()
+  const { date } = req.query;
+
+  CovidService.latest(date)
     .then(function(response) {
       utils.writeJson(res, response);
     })

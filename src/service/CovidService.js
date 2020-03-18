@@ -13,24 +13,6 @@ const categories = {
   DEATHS: "Deaths"
 };
 
-function getTodayDateMMDDYYYY() {
-  let today = new Date();
-  let dd = today.getDate();
-
-  let mm = today.getMonth() + 1;
-  let yyyy = today.getFullYear();
-  if (dd < 10) {
-    dd = "0" + dd;
-  }
-
-  if (mm < 10) {
-    mm = "0" + mm;
-  }
-
-  today = mm + "-" + dd + "-" + yyyy;
-  return today;
-}
-
 /**
  * Get Confirmed cases
  **/
@@ -82,8 +64,7 @@ exports.deathsByCountry = async function(country) {
 /**
  * Get Latest cases
  **/
-exports.latest = async function() {
-  const today = getTodayDateMMDDYYYY();
+exports.latest = async function(today) {
   try {
     const res = await axios.get(`${BASE_DAILY_PATH_URL}${today}.csv`);
     const jsonArray = await csv().fromString(res.data);
