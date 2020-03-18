@@ -1,8 +1,8 @@
 "use strict";
 
 const { Serializer } = require("jsonapi-serializer");
-const utils = require("../utils/writer.js");
-const CovidService = require("../service/CovidService");
+const utils = require("../src/utils/writer.js");
+const CovidService = require("../src/service/CovidService");
 
 module.exports.getConfirmed = function getConfirmed(req, res, next) {
   CovidService.confirmed()
