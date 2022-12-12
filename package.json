@@ -19,7 +19,7 @@
     "cors": "^2.8.5",
     "csvtojson": "^2.0.10",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "js-yaml": "^3.3.0",
     "jsonapi-serializer": "^3.6.6",
     "morgan": "^1.9.1",
